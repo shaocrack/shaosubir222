@@ -118,46 +118,26 @@ document.addEventListener('DOMContentLoaded', function() {
     let incobrables2024 = 0;
 
 
-    function guardarDatos() {
-        const datos = {
-            inicioActividades: inicioActividadesInput.value,
-            tipoActividades: tipoActividadesInput.value,
-            ventas: parseFloat(ventasInput.value) || 0,
-            ingresosFinancieros: parseFloat(ingresosFinancierosInput.value) || 0,
-            ventaActivos: parseFloat(ventaActivosInput.value) || 0,
-            ingresosAlquiler: parseFloat(ingresosAlquilerInput.value) || 0,
-            efectivo: parseFloat(efectivoInput.value) || 0,
-            cuentasCobrar: parseFloat(cuentasCobrarInput.value) || 0,
-            inventarios: parseFloat(inventariosInput.value) || 0,
-            terrenos: parseFloat(terrenosInput.value) || 0,
-            edificios: parseFloat(edificiosInput.value) || 0,
-            maquinarias: parseFloat(maquinariasInput.value) || 0,
-            muebles: parseFloat(mueblesInput.value) || 0,
-            equipos: parseFloat(equiposInput.value) || 0,
-            vehiculos: parseFloat(vehiculosInput.value) || 0,
-            materiaPrima: parseFloat(materiaPrimaInput.value) || 0,
-            manoObra: parseFloat(manoObraInput.value) || 0,
-            gastosAdministrativos: parseFloat(gastosAdministrativosInput.value) || 0,
-            gastosVenta: parseFloat(gastosVentaInput.value) || 0,
-            gastosFinancieros: parseFloat(gastosFinancierosInput.value) || 0,
-            cuentasPagar: parseFloat(cuentasPagarInput.value) || 0,
-            cacpeco: parseFloat(cacpecoInput.value) || 0,
-            pichincha: parseFloat(pichinchaInput.value) || 0,
-            ventas2021: parseFloat(ventas2021Input.value) || 0,
-            ventas2022: parseFloat(ventas2022Input.value) || 0,
-            ventas2023: parseFloat(ventas2023Input.value) || 0,
-            ventas2024: parseFloat(ventas2024Input.value) || 0,
-            incobrables2021: parseFloat(incobrables2021Input.value) || 0,
-            incobrables2022: parseFloat(incobrables2022Input.value) || 0,
-            incobrables2023: parseFloat(incobrables2023Input.value) || 0,
-            incobrables2024: parseFloat(incobrables2024Input.value) || 0,
-        };
+   //verificar
+   function guardarDatosContribuyente() {
+    const datosContribuyente = {
+        nombre: document.getElementById('nombre-contribuyente').textContent,
+        ci: document.getElementById('ci-contribuyente').textContent,
+        tipoContribuyente: document.getElementById('tipo-contribuyente').textContent,
+        inicioActividades: document.getElementById('inicio-actividades').value,
+        tipoActividades: document.getElementById('tipo-actividades').value,
+        totalIngresos: document.getElementById('total-ingresos').textContent,
+        totalEgresos: document.getElementById('total-egresos').textContent,
+        totalActivos: document.getElementById('total-activos').textContent,
+        totalPasivosCorrientes: document.getElementById('total-pasivos-corrientes').textContent,
+        puntaje: document.getElementById('puntaje').textContent,
+        riesgo: document.getElementById('riesgo').textContent
+    };
 
-        localStorage.setItem('datosFormulario', JSON.stringify(datos));
-    }
-
-    // Evento para guardar los datos cuando se hace clic en el botón de guardar
-    guardarButton.addEventListener('click', guardarDatos);
+    localStorage.setItem('datosContribuyente', JSON.stringify(datosContribuyente));
+}
+document.querySelector('button[onclick="window.location.href=\'final.html\'"]').addEventListener('click', guardarDatosContribuyente);
+   //
 
      //para ingresos
      function updateTotalIngresos() {
@@ -186,8 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCapitalTrabajo();
         updateLiquidezCorriente();
         updatePruebaAcida();
-        updateTotalActivos();
-        updateEndeudamientoActivo();
+        //updateTotalActivos();
+       // updateEndeudamientoActivo();
     }
     
     function updateTotalActivosNoCorrientes() {
@@ -200,16 +180,16 @@ document.addEventListener('DOMContentLoaded', function() {
         totalActivosNoCorrientes = terrenos + edificios + maquinarias + muebles + equipos + vehiculos;
         totalActivosNoCorrientesElement.textContent = `$${totalActivosNoCorrientes.toFixed(2)}`;
         updateTotalActivos();
-        updateEndeudamientoActivo();
+        //updateEndeudamientoActivo();
     }
 
-    function updateTotalActivos() {
-        totalActivos = totalActivosCorrientes + totalActivosNoCorrientes;
-        totalActivosElement.textContent = `$${totalActivos.toFixed(2)}`;
-        activoTotalElement.textContent = `$${totalActivos.toFixed(2)}`;
+     function updateTotalActivos() {
+         totalActivos = totalActivosCorrientes + totalActivosNoCorrientes;
+         totalActivosElement.textContent = `$${totalActivos.toFixed(2)}`;
+        // activoTotalElement.textContent = `$${totalActivos.toFixed(2)}`;
 
    
-    }
+     }
 
     function updateTotalEgresos() {
         materiaPrima = parseFloat(materiaPrimaInput.value) || 0;
@@ -230,13 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
         pasivosCorrientes1Input.value = totalPasivosCorrientes.toFixed(2);
         pasivosCorrientes2Input.value = totalPasivosCorrientes.toFixed(2);
         pasivosCorrientes3Input.value = totalPasivosCorrientes.toFixed(2);
-        pasivoTotalElement.textContent = `$${totalPasivosCorrientes.toFixed(2)}`;
+        //pasivoTotalElement.textContent = `$${totalPasivosCorrientes.toFixed(2)}`;
 
        
         updateCapitalTrabajo();
         updateLiquidezCorriente();
         updatePruebaAcida();
-        updateEndeudamientoActivo();
+        //updateEndeudamientoActivo();
     }
 //nuevo
 
@@ -319,23 +299,23 @@ function actualizarInterpretacionLiquidez() {
 
     }
 
-    // function updatePorcentajeIncobrables() {
+     function updatePorcentajeIncobrables() {
 
-    //      // Obtener los valores de incobrables para cada año
-    // incobrables2021 = parseFloat(incobrables2021Input.value) || 0;
-    // incobrables2022 = parseFloat(incobrables2022Input.value) || 0;
-    // incobrables2023 = parseFloat(incobrables2023Input.value) || 0;
-    // incobrables2024 = parseFloat(incobrables2024Input.value) || 0;
+          // Obtener los valores de incobrables para cada año
+     incobrables2021 = parseFloat(incobrables2021Input.value) || 0;
+     incobrables2022 = parseFloat(incobrables2022Input.value) || 0;
+     incobrables2023 = parseFloat(incobrables2023Input.value) || 0;
+     incobrables2024 = parseFloat(incobrables2024Input.value) || 0;
 
     // // Calcular los porcentajes de incobrables comparando con el año anterior
-    // porcentajeIncobrables2022Element.textContent = ((incobrables2021 - incobrables2022) / incobrables2021 * 100).toFixed(2) + '%';
-    // porcentajeIncobrables2023Element.textContent = ((incobrables2022 - incobrables2023) / incobrables2022 * 100).toFixed(2) + '%';
-    // porcentajeIncobrables2024Element.textContent = ((incobrables2023 - incobrables2024) / incobrables2023 * 100).toFixed(2) + '%';
+     porcentajeIncobrables2022Element.textContent = ((incobrables2021 - incobrables2022) / incobrables2021 * 100).toFixed(2) + '%';
+     porcentajeIncobrables2023Element.textContent = ((incobrables2022 - incobrables2023) / incobrables2022 * 100).toFixed(2) + '%';
+     porcentajeIncobrables2024Element.textContent = ((incobrables2023 - incobrables2024) / incobrables2023 * 100).toFixed(2) + '%';
 
     // // El primer año no tiene año anterior para comparar, por lo que se pone "N/A"
-    // porcentajeIncobrables2021Element.textContent = 'N/A';
+     porcentajeIncobrables2021Element.textContent = 'N/A';
 
-    // }
+    }
 
 
     function updatePorcentajeIncobrables() {
@@ -605,22 +585,22 @@ function addCodeudorRow() {
             for (let i = 0; i < datosCrecimientoVentas.anios.length; i++) {
                 if (datosCrecimientoVentas.anios[i]) {
                     // Rellenar los campos de año y ventas
-                    document.getElementById(`anio-${i+1}`).textContent = datosCrecimientoVentas.anios[i];
-                    ventasInputs[i].value = datosCrecimientoVentas.ingresos[i];
-    
-                    // Calcular y mostrar el crecimiento de ventas
-                    if (i > 0) {
+                   // document.getElementById(`anio-${i+1}`).textContent = datosCrecimientoVentas.anios[i];
+                   // ventasInputs[i].value = datosCrecimientoVentas.ingresos[i];
+   
+                //     Calcular y mostrar el crecimiento de ventas
+                if (i > 0) {
                         const ingresoAnterior = parseFloat(datosCrecimientoVentas.ingresos[i-1]);
                         const crecimiento = ((parseFloat(datosCrecimientoVentas.ingresos[i]) - ingresoAnterior) / ingresoAnterior) * 100;
-                        crecimientoElements[i].textContent = `${crecimiento.toFixed(2)}%`;
+                        //crecimientoElements[i].textContent = `${crecimiento.toFixed(2)}%`;
                     } else {
                         crecimientoElements[i].textContent = 'N/A';
                     }
-                    document.getElementById(`anio-incobrables-${i+1}`).textContent = datosCrecimientoVentas.anios[i];
-                    incobrablesInputs[i].value = datosCrecimientoVentas.gastos[i];
-    
-                    // const porcentajeIncobrables = (datosCrecimientoVentas.gastos[i] / datosCrecimientoVentas.gastos[i]) * 100;
-                    // porcentajeIncobrablesElements[i].textContent = `${porcentajeIncobrables.toFixed(2)}%`;
+                    //document.getElementById(`anio-incobrables-${i+1}`).textContent = datosCrecimientoVentas.anios[i];
+                   // incobrablesInputs[i].value = datosCrecimientoVentas.gastos[i];
+   
+                     const porcentajeIncobrables = (datosCrecimientoVentas.gastos[i] / datosCrecimientoVentas.gastos[i]) * 100;
+                     //porcentajeIncobrablesElements[i].textContent = `${porcentajeIncobrables.toFixed(2)}%`;
 
                 if (i > 0) {
                     const gastoAnterior = parseFloat(datosCrecimientoVentas.gastos[i-1]);
@@ -629,21 +609,21 @@ function addCodeudorRow() {
                     //const porcentajeIncobrables = ((gastoAnterior - gastoActual) / gastoAnterior) * 100;
                     const porcentajeIncobrables = ((gastoActual - gastoAnterior) / gastoAnterior) * 100;
 
-                    porcentajeIncobrablesElements[i].textContent = `${porcentajeIncobrables.toFixed(2)}%`;
+                   // porcentajeIncobrablesElements[i].textContent = `${porcentajeIncobrables.toFixed(2)}%`;
                 } else {
                     porcentajeIncobrablesElements[i].textContent = 'N/A';
                 }
-            
-              
+           
+             
                 }
             }
             
-            // for (let i = 0; i < 4; i++) {
-            //     const flujoCajaAnio = datosFlujoCaja[i];
-            //     if (flujoCajaAnio) {
-            //         document.getElementById(`anio-incobrables-${i+1}`).textContent = flujoCajaAnio.anio;
-            //     }
-            // }
+             for (let i = 0; i < 4; i++) {
+                 const flujoCajaAnio = datosFlujoCaja[i];
+                 if (flujoCajaAnio) {
+                     document.getElementById(`anio-incobrables-${i+1}`).textContent = flujoCajaAnio.anio;
+                 }
+             }
     
             // Rellenar los campos de egresos con los datos correspondientes
             const primerAnioFlujoCaja = datosFlujoCaja[0];
@@ -739,7 +719,6 @@ function addCodeudorRow() {
         } else {
             alert('No se encontraron datos de créditos en el almacenamiento local.');
         }
-       
     });
 
 ///guardar datos localmente de todo esto

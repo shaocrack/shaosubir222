@@ -116,11 +116,13 @@ function actualizarTablaCreditos() {
 }
 
 function actualizarTablaDatosResumen() {
+
     const totalCreditos = datos.creditosAdquiridos.reduce((total, credito) => total + credito.valor, 0);
     const totalNivelEndeudamiento = datos.nivelEndeudamiento.reduce((total, endeudamiento) => total + endeudamiento, 0);
-
-    document.getElementById('total-creditos-resumen').textContent = totalCreditos;
-    document.getElementById('total-nivel-endeudamiento-resumen').textContent = totalNivelEndeudamiento;
+    const promedioCreditos = datos.creditosAdquiridos.length > 0 ? totalCreditos / datos.creditosAdquiridos.length : 0;
+    const promedioNivelEndeudamiento = datos.nivelEndeudamiento.length > 0 ? totalNivelEndeudamiento / datos.nivelEndeudamiento.length : 0;
+    document.getElementById('total-creditos-resumen').textContent = promedioCreditos.toFixed(2);
+    document.getElementById('total-nivel-endeudamiento-resumen').textContent = promedioNivelEndeudamiento.toFixed(1);
 }
 
 function generarGrafica() {

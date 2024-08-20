@@ -33,9 +33,8 @@ function calcularFlujoDeCaja() {
     let costoManoObra = parseFloat(document.getElementById("costoManoObraInicial").value);
     let gastosAdmin = parseFloat(document.getElementById("gastosAdminInicial").value);
     let gastosVenta = parseFloat(document.getElementById("gastosVentaInicial").value);
-    const inversion = parseFloat(document.getElementById("inversion").value);
-    const ventasActivos = parseFloat(document.getElementById("ventasActivos").value);
-    const pagoDeudas = parseFloat(document.getElementById("pagoDeudas").value);
+    //const inversion = parseFloat(document.getElementById("inversion").value);
+    const inversionInicial = parseFloat(document.getElementById("inversion").value);
 
     let tablaResultados = document.getElementById("tablaResultados");
     tablaResultados.innerHTML = "";
@@ -53,9 +52,10 @@ function calcularFlujoDeCaja() {
             gastosVenta *= (1 + crecimientoIngresos);
         }
 
-        // Obtener los valores de las cuotas directamente desde la tabla de gastos financieros
+        const ventasActivos = parseFloat(document.getElementById(`ventasActivos${anio}`).value) || 0;
+        const pagoDeudas = parseFloat(document.getElementById(`pagoDeudas${anio}`).value) || 0;
         const gastosFinancieros = parseFloat(document.getElementById(`cuota-${anio}`).textContent) || 0;
-        
+    const inversion = i === 0 ? inversionInicial : 0;
         const flujoOperativo = ingreso - (costoMateriaPrima + costoManoObra + gastosAdmin + gastosVenta + gastosFinancieros);
         const flujoAntesParticipacion = flujoOperativo + ventasActivos - pagoDeudas;
         const participacionTrabajadores = flujoAntesParticipacion * 0.15;
@@ -113,6 +113,7 @@ function calcularFlujoDeCaja() {
     localStorage.setItem('datosFlujoCaja', JSON.stringify(datosFlujoCaja));
 }
 
+
 function guardarYContinuar() {
     calcularFlujoDeCaja();
     window.location.href = 'index4.html';
@@ -120,12 +121,21 @@ function guardarYContinuar() {
 
 document.getElementById("anioInicio").addEventListener("input", function () {
     const anioInicio = parseInt(this.value);
-    const gastosFinancierosDiv = document.getElementById("gastosFinancierosDiv");
-    gastosFinancierosDiv.innerHTML = '';
+
+    // Generar la tabla de activos y deudas dinámicamente
+    const tablaActivosDeudas = document.getElementById("tablaActivosDeudas").querySelector("tbody");
+    tablaActivosDeudas.innerHTML = '';
 
     for (let i = 0; i < 5; i++) {
         const anio = anioInicio + i;
-        gastosFinancierosDiv.innerHTML += `<label for="gastosFinancieros${anio}">Gastos Financieros para ${anio}:</label>
-        <input type="number" id="gastosFinancieros${anio}" step="0.01" required><br><br>`;
+        const fila = `
+            <tr>
+                <td>${anio}</td>
+                <td><input type="number" id="ventasActivos${anio}" step="0.01" required></td>
+                <td><input type="number" id="pagoDeudas${anio}" step="0.01" required></td>
+            </tr>
+        `;
+        tablaActivosDeudas.innerHTML += fila;
     }
-});
+}
+);

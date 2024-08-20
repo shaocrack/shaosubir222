@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Lógica para gráficos
+    cargarDatosContribuyente(); // Carga los datos antes de actualizar los gráficos
+
     const ctxIngresosEgresos = document.getElementById('pieChartIngresosEgresos').getContext('2d');
     new Chart(ctxIngresosEgresos, {
         type: 'pie',
         data: {
             labels: ['Ingresos', 'Egresos'],
             datasets: [{
-                data: [60, 40], // Ejemplo de datos
+                data: [
+                    parseFloat(document.querySelector('#analisis-ingresos-egresos p:nth-child(2)').textContent.replace('$', '').replace(',', '')),
+                    parseFloat(document.querySelector('#analisis-ingresos-egresos p:nth-child(3)').textContent.replace('$', '').replace(',', ''))
+                ],
                 backgroundColor: ['#36a2eb', '#ff6384'],
                 hoverBackgroundColor: ['#36a2eb', '#ff6384']
             }]
@@ -23,7 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
         data: {
             labels: ['Activos', 'Pasivos'],
             datasets: [{
-                data: [70, 30], // Ejemplo de datos
+                data: [
+                    parseFloat(document.querySelector('#analisis-solvencia p:nth-child(2)').textContent.replace('$', '').replace(',', '')),
+                    parseFloat(document.querySelector('#analisis-solvencia p:nth-child(3)').textContent.replace('$', '').replace(',', ''))
+                ],
                 backgroundColor: ['#4bc0c0', '#ff9f40'],
                 hoverBackgroundColor: ['#4bc0c0', '#ff9f40']
             }]
@@ -34,6 +41,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function cargarDatosContribuyente() {
+    const datosContribuyente = JSON.parse(localStorage.getItem('datosContribuyente'));
+
+    if (datosContribuyente) {
+        document.querySelector('#datos-contribuyente p:nth-child(2)').textContent = `Nombre: ${datosContribuyente.nombre}`;
+        document.querySelector('#datos-contribuyente p:nth-child(3)').textContent = `RUC: ${datosContribuyente.ci}`;
+        document.querySelector('#datos-contribuyente p:nth-child(4)').textContent = `Tipo de contribuyente: ${datosContribuyente.tipoContribuyente}`;
+        document.querySelector('#datos-contribuyente p:nth-child(5)').textContent = `Inicio de Actividades Económicas: ${datosContribuyente.inicioActividades}`;
+        document.querySelector('#datos-contribuyente p:nth-child(6)').textContent = `Tipo de Actividades Económicas: ${datosContribuyente.tipoActividades}`;
+
+        document.querySelector('#analisis-ingresos-egresos p:nth-child(2)').textContent = `Total Ingresos: ${datosContribuyente.totalIngresos}`;
+        document.querySelector('#analisis-ingresos-egresos p:nth-child(3)').textContent = `Total Egresos: ${datosContribuyente.totalEgresos}`;
+
+        document.querySelector('#analisis-solvencia p:nth-child(2)').textContent = `Total Activos: ${datosContribuyente.totalActivos}`;
+        document.querySelector('#analisis-solvencia p:nth-child(3)').textContent = `Total Pasivos: ${datosContribuyente.totalPasivosCorrientes}`;
+
+        // Aquí podrías actualizar la descripción del riesgo si es necesario.
+    } else {
+        alert('No se encontraron datos del contribuyente en el almacenamiento local.');
+    }
+}
+
+// Llama a la función cuando el documento esté listo
+document.addEventListener('DOMContentLoaded', cargarDatosContribuyente);
 
 function generarPDF() {
     const { jsPDF } = window.jspdf;

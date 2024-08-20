@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="stylesFinal.css">
 </head>
 <body>
+    <button onclick="cargarDatosContribuyente()">Cargar Datos</button>
+
     <header>
         <h1>INFORME DE ANÁLISIS 360</h1>
     </header>
@@ -38,6 +40,11 @@
         <div class="chart-container">
             <canvas id="pieChartSolvencia"></canvas>
         </div>
+    </section>
+    <section id="score-riesgo">
+        <h2>Score y Descripción del Riesgo:</h2>
+        <p><strong>Puntaje:</strong> <span id="puntaje-final">----</span></p>
+        <p><strong>Descripción del Riesgo:</strong> <span id="riesgo-final">----</span></p>
     </section>
 
     <button onclick="generarPDF()">Descargar como PDF</button>
