@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Formulario Interactivo</title>
+</head>
+<body>
+    <div class="container">
+    <h1 style="text-align: center;">MODELO 360</h1>
+    <form id="mainForm">
+        <label for="cedula">Cédula:</label>
+        <input type="text" id="cedula" name="cedula" required><br><br>
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required><br><br>
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required><br><br>
+
+        <label for="tipo">Tipo de RIMPE:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="">Seleccione...</option>
+            <option value="emprendedor">Emprendedor</option>
+            <option value="negocioPopular">Negocio Popular</option>
+        </select><br><br>
+
+        <div id="financialDetails" class="hidden">
+            <label for="ingresos">Ingresos Anuales:</label>
+            <input type="number" id="ingresos" name="ingresos" required> $<br><br>
+
+            <label for="gastos">Gastos Anuales:</label>
+            <input type="number" id="gastos" name="gastos" required> $<br><br>
+        </div>
+
+        <label>¿Actualmente posee un crédito?</label>
+        <input type="radio" id="creditoSi" name="credito" value="si" required>
+        <label for="creditoSi">Sí</label>
+        <input type="radio" id="creditoNo" name="credito" value="no">
+        <label for="creditoNo">No</label><br><br>
+
+        <div id="creditDetails" class="hidden">
+            <label for="numCreditos">¿Cuántos créditos ha adquirido?</label>
+            <input type="number" id="numCreditos" name="numCreditos" min="1" ><br><br>
+
+            <div id="creditForms"></div>
+        </div>
+
+        <div id="riskEvaluation" class="hidden">
+            <h3>Evaluación de Riesgo</h3>
+            <table border="1">
+                <tr>
+                    <th>N°</th>
+                    <th>Elementos</th>
+                    <th>Probabilidad (1-4)</th>
+                    <th>Impacto (1-4)</th>
+                    <th>Nivel de Riesgo</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Obligaciones sin vencer (evalue el cumplimiento de los pagos)</td>
+                    <td><input type="number" id="prob1" name="prob1" min="1" max="4" ></td>
+                    <td><input type="number" id="impacto1" name="impacto1" min="1" max="4" ></td>
+                    <td id="risk1"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Obligaciones vencidas (evalue los pagos incumplidos)</td>
+                    <td><input type="number" id="prob2" name="prob2" min="1" max="4" ></td>
+                    <td><input type="number" id="impacto2" name="impacto2" min="1" max="4" ></td>
+                    <td id="risk2"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ahorro</td>
+                    <td><input type="number" id="prob3" name="prob3" min="1" max="4" ></td>
+                    <td><input type="number" id="impacto3" name="impacto3" min="1" max="4" ></td>
+                    <td id="risk3"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Incurrir en gastos innecesarios</td>
+                    <td><input type="number" id="prob4" name="prob4" min="1" max="4" ></td>
+                    <td><input type="number" id="impacto4" name="impacto4" min="1" max="4" ></td>
+                    <td id="risk4"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>No se generen los ingresos esperados</td>
+                    <td><input type="number" id="prob5" name="prob5" min="1" max="4" ></td>
+                    <td><input type="number" id="impacto5" name="impacto5" min="1" max="4" ></td>
+                    <td id="risk5"></td>
+                </tr>    
+            </table>
+            <br>
+            <button type="button" onclick="calculateRisk()">Calcular Riesgo</button>
+            <div id="totalRiskLevel"></div>
+            <div id="riskResultTable" class="hidden"></div>
+        </div>
+
+        <input type="submit" value="Enviar">
+    </form>
+    <script src="scripts.js"></script>
+</div>
+</body>
+</html>

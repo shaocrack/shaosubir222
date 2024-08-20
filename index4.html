@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Análisis 360°</title>
+    <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+    <div class="container">
+        <h1>INFORME DE ANÁLISIS 360°</h1>
+        <button id="cargar-datos">Cargar Datos</button>
+        <h2>DATOS DEL CONTRIBUYENTE</h2>
+        <table>
+            <tr>
+                <th>Nombre:</th>
+                <td id="nombre-contribuyente"></td>
+            </tr>
+            <tr>
+                <th>CI:</th>
+                <td id="ci-contribuyente"></td>
+            </tr>
+            <tr>
+                <th>Tipo de contribuyente:</th>
+                <td id="tipo-contribuyente"></td>
+            </tr>
+            <tr>
+                <th>Inicio de Actividades Económicas:</th>
+                <td><input type="text" id="inicio-actividades" placeholder="e.g., 3/8/2021"></td>
+            </tr>
+            <tr>
+                <th>Tipo de Actividades Económicas:</th>
+                <td><input type="text" id="tipo-actividades" placeholder="e.g., Ventas de insumos agrícolas"></td>
+            </tr>
+        </table>
+      
+        <!-- INGRESOS -->
+        <h2>INGRESOS</h2>
+        <table>
+            <tr>
+                <th colspan="2">Ingresos por actividades Ordinarias</th>
+            </tr>
+            <tr>
+                <td>Ventas</td>
+                <td><input type="text" id="ventas" placeholder="e.g., 30000.00"></td>
+            </tr>
+            <tr>
+                <th colspan="2">Ingresos por actividades No Ordinarias</th>
+            </tr>
+            <tr>
+                <td>Ingresos Financieros</td>
+                <td><input type="text" id="ingresos-financieros" placeholder="e.g., 0.00"></td>
+            </tr>
+            <tr>
+                <td>Ingresos por Venta de Activos</td>
+                <td><input type="text" id="venta-activos" placeholder="e.g., 5000.00"></td>
+            </tr>
+            <tr>
+                <th colspan="2">Otros Ingresos</th>
+            </tr>
+            <tr>
+                <td>Ingresos por alquiler</td>
+                <td><input type="text" id="ingresos-alquiler" placeholder="e.g., 0.00"></td>
+            </tr>
+            <tr>
+                <th>TOTAL DE INGRESOS</th>
+                <td id="total-ingresos">$0.00</td>
+            </tr>
+        </table>
+        <!-- ACTIVOS -->
+
+        <h2>ACTIVOS</h2>
+<table>
+    <tr>
+        <th colspan="2">Corrientes</th>
+    </tr>
+    <tr>
+        <td>Efectivo y equivalente de efectivo</td>
+        <td><input type="text" id="efectivo" placeholder="e.g., 12000.00"></td>
+    </tr>
+    <tr>
+        <td>Cuentas y documentos por cobrar</td>
+        <td><input type="text" id="cuentas-cobrar" placeholder="e.g., 5600.00"></td>
+    </tr>
+    <tr>
+        <td>Inventarios</td>
+        <td><input type="text" id="inventarios" placeholder="e.g., 11000.00"></td>
+    </tr>
+    <tr>
+        <th>Total Activos Corrientes</th>
+        <td id="total-activos-corrientes">$0.00</td>
+    </tr>
+    <tr>
+        <th colspan="2">No Corrientes</th>
+    </tr>
+    <tr>
+        <td>Terrenos</td>
+        <td><input type="text" id="terrenos" placeholder="e.g., 25000.00"></td>
+    </tr>
+    <tr>
+        <td>Edificios</td>
+        <td><input type="text" id="edificios" placeholder="e.g., 45000.00"></td>
+    </tr>
+    <tr>
+        <td>Maquinarias y equipos</td>
+        <td><input type="text" id="maquinarias" placeholder="e.g., 0.00"></td>
+    </tr>
+    <tr>
+        <td>Muebles y enseres</td>
+        <td><input type="text" id="muebles" placeholder="e.g., 0.00"></td>
+    </tr>
+    <tr>
+        <td>Equipos de computación</td>
+        <td><input type="text" id="equipos" placeholder="e.g., 0.00"></td>
+    </tr>
+    <tr>
+        <td>Vehículos</td>
+        <td><input type="text" id="vehiculos" placeholder="e.g., 5000.00"></td>
+    </tr>
+    <tr>
+        <th>Total Activos No Corrientes</th>
+        <td id="total-activos-no-corrientes">$0.00</td>
+    </tr>
+    <tr>
+        <th>TOTAL DE ACTIVOS</th>
+        <td id="total-activos">$0.00</td>
+    </tr>
+</table>
+         <!--EGRESOS  -->
+
+         <h2>EGRESOS</h2>
+<table>
+    <tr>
+        <td>Costo de materia prima</td>
+        <td><input type="text" id="materia-prima" placeholder="e.g., 1100.00"></td>
+    </tr>
+    <tr>
+        <td>Costo mano obra directa</td>
+        <td><input type="text" id="mano-obra" placeholder="e.g., 3200.00"></td>
+    </tr>
+    <tr>
+        <td>Gastos administrativos</td>
+        <td><input type="text" id="gastos-administrativos" placeholder="e.g., 2000.00"></td>
+    </tr>
+    <tr>
+        <td>Gastos de venta</td>
+        <td><input type="text" id="gastos-venta" placeholder="e.g., 500.00"></td>
+    </tr>
+    <tr>
+        <td>Gastos financieros</td>
+        <td><input type="text" id="gastos-financieros" placeholder="e.g., 2087.50"></td>
+    </tr>
+    <tr>
+        <th>TOTAL DE EGRESOS</th>
+        <td id="total-egresos">$0.00</td>
+    </tr>
+</table>
+         <!-- PASIVOS -->
+       <!-- PASIVOS -->
+       <h2>PASIVOS</h2>
+       <table>
+           <tr>
+               <th colspan="2">Corrientes</th>
+           </tr>
+           <tr>
+               <td>Cuentas y documentos por pagar</td>
+               <td><input type="text" id="cuentas-pagar" placeholder="e.g., 0.00"></td>
+           </tr>
+           <tr>
+               <td>CACPECO</td>
+               <td><input type="text" id="cacpeco" placeholder="e.g., 39000.00"></td>
+           </tr>
+           <tr>
+               <td>PICHINCHA</td>
+               <td><input type="text" id="pichincha" placeholder="e.g., 12000.00"></td>
+           </tr>
+           <tr>
+               <td>GUAYAQUIL</td>
+               <td><input type="text" id="guayaquil" placeholder="e.g., 0.00"></td>
+           </tr>
+           <tr>
+               <td>RUMIÑAHUI</td>
+               <td><input type="text" id="ruminhaui" placeholder="e.g., 0.00"></td>
+           </tr>
+           <tr>
+               <td>BANECUADOR</td>
+               <td><input type="text" id="banecuador" placeholder="e.g., 0.00"></td>
+           </tr>
+           <tr>
+               <td>PACÍFICO</td>
+               <td><input type="text" id="pacifico" placeholder="e.g., 0.00"></td>
+           </tr>
+           <tr>
+               <td>AMBATO</td>
+               <td><input type="text" id="ambato" placeholder="e.g., 0.00"></td>
+           </tr>
+           <tr>
+               <th>Total Pasivos Corrientes</th>
+               <td id="total-pasivos-corrientes">$0.00</td>
+           </tr>
+       </table>
+
+         
+          <!--  Crecimiento de ventas-->
+<h2>Crecimiento de ventas</h2>
+<table>
+    <tr>
+        <th>Año</th>
+        <th>Ventas Anuales</th>
+        <th>Crecimiento de ventas</th>
+    </tr>
+    <tr>
+        <td id="anio-1">----</td>
+        <td><input type="text" id="ventas-1" placeholder="e.g., 30000.00"></td>
+        <td id="crecimiento-1">----</td>
+    </tr>
+    <tr>
+        <td id="anio-2">----</td>
+        <td><input type="text" id="ventas-2" placeholder="e.g., 20000.00"></td>
+        <td id="crecimiento-2">----</td>
+    </tr>
+    <tr>
+        <td id="anio-3">----</td>
+        <td><input type="text" id="ventas-3" placeholder="e.g., 30724.32"></td>
+        <td id="crecimiento-3">----</td>
+    </tr>
+    <tr>
+        <td id="anio-4">----</td>
+        <td><input type="text" id="ventas-4" placeholder="e.g., 30000.00"></td>
+        <td id="crecimiento-4">----</td>
+    </tr>
+</table>
+            <!-- crecimiento  -->
+            <h2>Crecimiento de Gastos</h2>
+<table>
+    <tr>
+        <th>Año</th>
+        <th>Gastos Anuales</th>
+        <th>Porcentaje Gastos</th>
+    </tr>
+    <tr>
+        <td id="anio-incobrables-1">----</td>
+        <td><input type="text" id="incobrables-2021" placeholder="e.g., 3000.00"></td>
+        <td id="porcentaje-incobrables-2021">----</td>
+    </tr>
+    <tr>
+        <td id="anio-incobrables-2">----</td>
+        <td><input type="text" id="incobrables-2022" placeholder="e.g., 1500.00"></td>
+        <td id="porcentaje-incobrables-2022">----</td>
+    </tr>
+    <tr>
+        <td id="anio-incobrables-3">----</td>
+        <td><input type="text" id="incobrables-2023" placeholder="e.g., 2800.00"></td>
+        <td id="porcentaje-incobrables-2023">----</td>
+    </tr>
+    <tr>
+        <td id="anio-incobrables-4">----</td>
+        <td><input type="text" id="incobrables-2024" placeholder="e.g., 5600.00"></td>
+        <td id="porcentaje-incobrables-2024">----</td>
+    </tr>
+</table>
+             <!-- indicadores -->
+             <h2>Indicadores de liquidez y solvencia</h2>
+             <table>
+                 <tr>
+                     <th>Indicador</th>
+                     <th>Fórmula</th>
+                     <th>Descripción</th>
+                     <th>Valores</th>
+                 </tr>
+                 <tr>
+                     <td>Capital de trabajo</td>
+                     <td>Activos corrientes - Pasivos Corrientes</td>
+                     <td>Evalua la liquidez operativa del negocio para cumplir con sus obligaciones de corto plazo.</td>
+                     <td>
+                         Activos Corrientes: <input type="text" id="activos-corrientes-1" placeholder="e.g., 30000.00"><br>
+                         Pasivos Corrientes: <input type="text" id="pasivos-corrientes-1" placeholder="e.g., 15590.04"><br>
+                         <span id="capital-trabajo">$0.00</span>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>Liquidez Corriente</td>
+                     <td>Activos corrientes / Pasivos Corrientes</td>
+                     <td>Mide la capacidad de la empresa para cumplir con sus obligaciones de corto plazo</td>
+                     <td>
+                         Activos Corrientes: <input type="text" id="activos-corrientes-2" placeholder="e.g., 30000.00"><br>
+                         Pasivos Corrientes: <input type="text" id="pasivos-corrientes-2" placeholder="e.g., 15590.04"><br>
+                         <span id="liquidez-corriente">0.00</span>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>Prueba Ácida</td>
+                     <td>(Activos corrientes - Inventario) / Pasivo Corriente</td>
+                     <td>Mide la capacidad de una empresa para pagar sus deudas a corto plazo utilizando sus activos más líquidos, excluyendo los inventarios.</td>
+                     <td>
+                         Activos Corrientes: <input type="text" id="activos-corrientes-3" placeholder="e.g., 30000.00"><br>
+                         Inventario: <input type="text" id="inventario" placeholder="e.g., 11000.00"><br>
+                         Pasivo Corriente: <input type="text" id="pasivos-corrientes-3" placeholder="e.g., 15590.04"><br>
+                         <span id="prueba-acida">0.00</span>
+                     </td>
+                 </tr>
+             </table>
+             <p id="interpretacion-indice-liquidez">El negocio de acuerdo al Capital de Trabajo, Razón Corriente y Prueba Ácida si posee la liquidez necesaria para cubrir sus obligaciones financieras, deudas o pasivos a corto plazo y desarrollar sus actividades sin ningún contratiempo.</p>
+             
+             <!--endeudamiento  -->
+             <h2>Indicadores de Endeudamiento</h2>
+    <table>
+        <tr>
+            <th>Indicador</th>
+            
+            <th>Descripción</th>
+            <th>Valores</th>
+        </tr>
+        <tr>
+            <td>Endeudamiento del Activo</td>
+            
+            <td>Mide la proporción de las deudas a corto plazo en relación con los activos totales de una empresa.</td>
+            <td>
+                Pasivo Total: <input type="number" id="pasivo-total-input" value="----"><br>
+                Activo Total: <input type="number" id="activo-total-input" value="----"><br>
+                Resultado: <span id="endeudamiento-activo-display">---</span>
+               <p>presionar otra vez cargar</p>
+            </td>
+        </tr>
+    </table>
+    <p id="interpretacion-endeudamiento">El negocio presenta por cada dólar de Activo Total la empresa tiene $<span id="ratio-endeudamiento-display">---</span> en Pasivos Corrientes. Por cada dólar de Activo Total, $<span id="ratio-endeudamiento-display">---</span> son deudas a Corto Plazo.</p>
+
+         
+             <!-- indicadores de actividad -->
+             <h2>Indicadores de Actividad</h2>
+             <table>
+                 <tr>
+                     <th>Indicador</th>
+                     <th>Datos</th>
+                     <th>Valor</th>
+                     <th>Nominación</th>
+                     <th>Interpretación</th>
+                 </tr>
+                 <tr>
+                     <td>Rotación de Cartera</td>
+                     <td>
+                         Ventas: <input type="number" id="ventas-rotacion" value=""><br>
+                         Cuentas por Cobrar: <input type="number" id="cuentas-por-cobrar" value=""><br>
+                         
+                     </td>
+                     <td id="rotacion-cartera-valor">---</td>
+                     <td>Veces</td>
+                     <td id="rotacion-cartera-interpretacion">La empresa en promedio cobra 5 veces al año.</td>
+                 </tr>
+                 <tr>
+                     <td>Período medio de cobranza</td>
+                     <td>
+                         Ventas: <input type="number" id="ventas-cobranza" value=""><br>
+                         Cuentas por Cobrar: <input type="number" id="cuentas-por-cobrar-cobranza" value=""><br>
+                        
+                     </td>
+                     <td id="periodo-cobranza-valor">---</td>
+                     <td>Días</td>
+                     <td id="periodo-cobranza-interpretacion">La empresa otorga a sus clientes un período promedio de 68 días para que cancelen sus deudas a crédito.</td>
+                 </tr>
+                 <tr>
+                     <td>Rotación Cuentas por Pagar</td>
+                     <td>
+                         Compras: <input type="number" id="compras" value=""><br>
+                         Cuentas por Pagar: <input type="number" id="cuentas-por-pagar" value=""><br>
+                        
+                     </td>
+                     <td id="rotacion-cuentas-pagar-valor">---</td>
+                     <td>Veces</td>
+                     <td id="rotacion-cuentas-pagar-interpretacion">La empresa paga en promedio 8 veces al año.</td>
+                 </tr>
+                 <tr>
+                     <td>Período medio de Pago</td>
+                     <td>
+                         Compras: <input type="number" id="compras-pago" value=""><br>
+                         Cuentas por Pagar: <input type="number" id="cuentas-por-pagar-pago" value=""><br>
+                        
+                     </td>
+                     <td id="periodo-pago-valor">---</td>
+                     <td>Días</td>
+                     <td id="periodo-pago-interpretacion">La empresa paga a sus proveedores en un período promedio de 846 días.</td>
+                 </tr>
+                 <tr>
+                     <td>Rotación Activo Fijo</td>
+                     <td>
+                         Ventas: <input type="number" id="ventas-activo-fijo" value=""><br>
+                         Activo Fijo: <input type="number" id="activo-fijo" value=""><br>
+                         
+                     </td>
+                     <td id="rotacion-activo-fijo-valor">---</td>
+                     <td>Veces</td>
+                     <td id="rotacion-activo-fijo-interpretacion">Por cada dólar invertido en Activo Fijo, La empresa vende $ 0.4.</td>
+                 </tr>
+                 <tr>
+                     <td>Rotación de Ventas</td>
+                     <td>
+                         Ventas: <input type="number" id="ventas-rotacion-ventas" value=""><br>
+                         Activo Total: <input type="number" id="activo-total-rotacion-ventas" value=""><br>
+                        
+                     </td>
+                     <td id="rotacion-ventas-valor">---</td>
+                     <td>Veces</td>
+                     <td id="rotacion-ventas-interpretacion">Por cada dólar invertido en Activo Total, la empresa generó una venta de $ 0.29.</td>
+                 </tr>
+             </table>
+             <p id="conclusion-rotacion">La empresa otorga a sus clientes un plazo de cobro de 68 días y paga a sus proveedores en un período de 846 días, por lo tanto la empresa tiene una buena gestión tanto en sus cobros como en sus pagos.</p>
+             
+
+            <!-- indicadores de rentabilidad -->
+             <section>
+                <h2>Indicadores de rentabilidad</h2>
+                <table>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Datos</th>
+                        <th>Fórmula</th>
+                        <th>Interpretación</th>
+                        <th>Resultado</th>
+                    </tr>
+                    <tr>
+                        <td>Margen Neto</td>
+                        <td>
+                            <label for="utilidad-margen-neto">Utilidad:</label>
+                            <input type="number" id="utilidad-margen-neto">
+                            <label for="ventas-margen-neto">Ventas:</label>
+                            <input type="number" id="ventas-margen-neto">
+                        </td>
+                        <td>Utilidad / Ventas</td>
+                        <td>Corresponde al porcentaje de las ventas que se transforma en beneficio neto para la empresa</td>
+                        <td id="resultado-margen-neto">0%</td>
+                    </tr>
+                    <tr>
+                        <td>ROA</td>
+                        <td>
+                            <label for="utilidad-roa">Utilidad Neta:</label>
+                            <input type="number" id="utilidad-roa">
+                            <label for="activo-total-roa">Activo Total:</label>
+                            <input type="number" id="activo-total-roa">
+                        </td>
+                        <td>Utilidad neta / Activos Total</td>
+                        <td>Este porcentaje indica el rendimiento de los activos de operación</td>
+                        <td id="resultado-roa">0%</td>
+                    </tr>
+                </table>
+            </section>
+            
+
+             <!-- codeudor -->
+             <section>
+                <h2>Codeudor y garantías personales de operaciones vigentes</h2>
+                <table id="codeudor-table">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Nombre</th>
+                            <th>Identificación</th>
+                            <th>Número Operación</th>
+                            <th>Institución</th>
+                            <th>Deuda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" value="Codeudor"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="text"></td>
+                            <td><input type="number"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="add-codeudor-row">Agregar Codeudor</button>
+            </section>
+            <!-- Calificación de Días de Mora -->
+            <h2>Cálculo del Score</h2>
+            <form id="formulario-score">
+                <label for="dias-mora">Rango de días de mora:</label>
+                <select id="dias-mora" required>
+                    <option value="0">Sin días de mora</option>
+                    <option value="1">De 1 a 15 días</option>
+                    <option value="2">De 16 a 30 días</option>
+                    <option value="3">De 31 a 45 días</option>
+                    <option value="4">De 46 a 60 días</option>
+                    <option value="5">De 61 a 90 días</option>
+                    <option value="6">Más de 90 días</option>
+                </select>
+            
+                <label for="saldo-promedio-deuda">Saldo Promedio de Deuda:</label>
+                <input type="number" id="saldo-promedio-deuda" placeholder="e.g., 17000" required>
+            
+                <label for="saldo-promedio-capacidad-pago">Saldo Promedio de Capacidad de Pago:</label>
+                <input type="number" id="saldo-promedio-capacidad-pago" placeholder="e.g., 0" required>
+            
+                <button type="button" onclick="calcularScore()">Calcular Score</button>
+            </form>
+            
+            <h3>Resultado</h3>
+            <p id="resultado-score">Puntaje: <span id="puntaje">----</span></p>
+            <p id="descripcion-riesgo">Descripción del Riesgo: <span id="riesgo">----</span></p>
+            
+<h2>Calificación de Días de Mora</h2>
+<table>
+    <tr>
+        <th>Calificación</th>
+        <th>Frecuencia (días)</th>
+        <th>Impacto</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1-15</td>
+        <td>1%-20%</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>16-30</td>
+        <td>21%-40%</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>31-45</td>
+        <td>41%-60%</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>46-60</td>
+        <td>61%-80%</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>61-90</td>
+        <td>81%-100%</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>91- en adelante</td>
+        <td>101%- en adelante</td>
+    </tr>
+</table>
+
+<!-- MATRIZ DE RIESGOS -->
+<h2>MATRIZ DE RIESGOS</h2>
+<table>
+    <tr>
+        <th>Puntaje</th>
+        <th>Descripción del Riesgo</th>
+    </tr>
+    <tr>
+        <td>999-960</td>
+        <td style="background-color: green;">Bajo Riesgo de Morosidad</td>
+    </tr>
+    <tr>
+        <td>959-840</td>
+        <td style="background-color: yellow;">Moderado Riesgo de Morosidad</td>
+    </tr>
+    <tr>
+        <td>839-600</td>
+        <td style="background-color: orange;">Alto Riesgo de Morosidad</td>
+    </tr>
+    <tr>
+        <td>599-280</td>
+        <td style="background-color: red;">Muy Alto Riesgo de Morosidad</td>
+    </tr>
+</table>
+             <!--  -->
+<!-- Botón para calcular riesgo -->
+
+             <button onclick="window.location.href='final.html'">Continuar</button>
+    </div>
+    <script>
+        function calcularScore() {
+            // Obtener los valores de los inputs
+            const diasMora = parseInt(document.getElementById('dias-mora').value);
+            const saldoPromedioDeuda = parseFloat(document.getElementById('saldo-promedio-deuda').value);
+            const saldoPromedioCapacidadPago = parseFloat(document.getElementById('saldo-promedio-capacidad-pago').value);
+        
+            // Calcular el promedio general
+            const promedioGeneral = ((saldoPromedioDeuda - saldoPromedioCapacidadPago) / saldoPromedioDeuda) * 100;
+        
+            // Determinar el impacto según el promedio general
+            let impactoPromedio = 0;
+            if (promedioGeneral >= 1 && promedioGeneral <= 20) {
+                impactoPromedio = 1;
+            } else if (promedioGeneral >= 21 && promedioGeneral <= 40) {
+                impactoPromedio = 2;
+            } else if (promedioGeneral >= 41 && promedioGeneral <= 60) {
+                impactoPromedio = 3;
+            } else if (promedioGeneral >= 61 && promedioGeneral <= 80) {
+                impactoPromedio = 4;
+            } else if (promedioGeneral >= 81 && promedioGeneral <= 100) {
+                impactoPromedio = 5;
+            } else if (promedioGeneral >= 101) {
+                impactoPromedio = 6;
+            }
+        
+            // Determinar el impacto según los días de mora
+            let impactoMora = 0;
+            switch (diasMora) {
+                case 0:
+                    impactoMora = 0;
+                    break;
+                case 1:
+                    impactoMora = 1;
+                    break;
+                case 2:
+                    impactoMora = 2;
+                    break;
+                case 3:
+                    impactoMora = 3;
+                    break;
+                case 4:
+                    impactoMora = 4;
+                    break;
+                case 5:
+                    impactoMora = 5;
+                    break;
+                case 6:
+                    impactoMora = 6;
+                    break;
+                default:
+                    impactoMora = 0;
+                    break;
+            }
+        
+            // Calcular el impacto total multiplicando ambos impactos
+            const impactoTotal = impactoPromedio * impactoMora;
+        
+            // Determinar el puntaje basado en la matriz de riesgos
+            let puntaje = 0;
+            if (impactoTotal === 0) {
+                puntaje = 999;
+            } else if (impactoTotal === 1) {
+                puntaje = 959;
+            } else if (impactoTotal === 2) {
+                puntaje = 919;
+            } else if (impactoTotal === 3) {
+                puntaje = 879;
+            } else if (impactoTotal === 4) {
+                puntaje = 839;
+            } else if (impactoTotal === 5) {
+                puntaje = 799;
+            } else if (impactoTotal === 6) {
+                puntaje = 759;
+            } else if (impactoTotal === 8) {
+                puntaje = 719;
+            } else if (impactoTotal === 9) {
+                puntaje = 679;
+            } else if (impactoTotal === 10) {
+                puntaje = 639;
+            } else if (impactoTotal === 12) {
+                puntaje = 599;
+            } else if (impactoTotal === 15) {
+                puntaje = 559;
+            } else if (impactoTotal === 16) {
+                puntaje = 519;
+            } else if (impactoTotal === 18) {
+                puntaje = 479;
+            } else if (impactoTotal === 20) {
+                puntaje = 439;
+            } else if (impactoTotal === 24) {
+                puntaje = 399;
+            } else if (impactoTotal === 25) {
+                puntaje = 359;
+            } else if (impactoTotal === 30) {
+                puntaje = 319;
+            } else if (impactoTotal === 36) {
+                puntaje = 279;
+            }
+        
+            // Determinar la descripción del riesgo basado en el puntaje
+            let descripcionRiesgo = '';
+            if (puntaje >= 959) {
+                descripcionRiesgo = 'Apto para crédito';
+            } else if (puntaje >= 839 && puntaje < 959) {
+                descripcionRiesgo = 'Probabilidad aceptable para adquirir un crédito';
+            } else if (puntaje >= 639 && puntaje < 839) {
+                descripcionRiesgo = 'Poco probable para crédito';
+            } else {
+                descripcionRiesgo = 'No es apto para crédito';
+            }
+        
+            // Mostrar resultados
+            document.getElementById('puntaje').textContent = puntaje;
+            document.getElementById('riesgo').textContent = descripcionRiesgo;
+        }
+        
+    </script>
+    <script>
+        function updateRotacionCartera() {
+            const ventas = parseFloat(document.getElementById('ventas-rotacion').value) || 0;
+            const cuentasPorCobrar = parseFloat(document.getElementById('cuentas-por-cobrar').value) || 0;
+            const rotacionCartera = ventas / cuentasPorCobrar;
+            document.getElementById('rotacion-cartera-valor').textContent = Math.floor(rotacionCartera);
+            document.getElementById('rotacion-cartera-interpretacion').textContent = `La empresa en promedio cobra ${Math.floor(rotacionCartera)} veces al año.`;
+        }
+
+        // Otras funciones para los cálculos
+    </script>
+    <script>
+        function calcularPuntajeRiesgo() {
+            const diasDeMora = parseFloat(document.getElementById('dias-mora-input').value) || 0; 
+            const sobreendeudamiento = parseFloat(document.getElementById('sobreendeudamiento-input').value) || 0;
+            
+            let puntaje = 999;
+            
+            if (diasDeMora > 90 || sobreendeudamiento > 100) {
+                puntaje = 279; // Muy alto riesgo
+            } else if (diasDeMora > 60 || sobreendeudamiento > 80) {
+                puntaje = 519; // Alto riesgo
+            } else if (diasDeMora > 15 || sobreendeudamiento > 20) {
+                puntaje = 839; // Moderado riesgo
+            } else {
+                puntaje = 959; // Bajo riesgo
+            }
+            
+            document.getElementById('puntaje-riesgo').textContent = puntaje;
+        
+            // Actualizar el color de fondo de la descripción de riesgo
+            const riesgoDescripcion = document.getElementById('riesgo-descripcion');
+            if (puntaje >= 960) {
+                riesgoDescripcion.style.backgroundColor = 'green';
+                riesgoDescripcion.textContent = "Bajo Riesgo de Morosidad";
+            } else if (puntaje >= 840) {
+                riesgoDescripcion.style.backgroundColor = 'yellow';
+                riesgoDescripcion.textContent = "Moderado Riesgo de Morosidad";
+            } else if (puntaje >= 600) {
+                riesgoDescripcion.style.backgroundColor = 'orange';
+                riesgoDescripcion.textContent = "Alto Riesgo de Morosidad";
+            } else {
+                riesgoDescripcion.style.backgroundColor = 'red';
+                riesgoDescripcion.textContent = "Muy Alto Riesgo de Morosidad";
+            }
+        }
+        
+        // Añade un botón para calcular el riesgo
+        document.getElementById('calcular-riesgo-btn').addEventListener('click', calcularPuntajeRiesgo);
+    </script>
+    <script src="script4a.js"></script>
+</body>
+</html>

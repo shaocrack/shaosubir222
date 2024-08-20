@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyección de Flujo de Caja</title>
+    <link rel="stylesheet" href="styles3a.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Proyección de Flujo de Caja</h1>
+    <form id="formulario">
+        <label for="anioInicio">Año de Inicio:</label>
+        <input type="number" id="anioInicio" required><br><br>
+
+        <label for="crecimientoIngresos">Crecimiento Anual de Ingresos (%):</label>
+        <input type="number" id="crecimientoIngresos" step="0.01" required><br><br>
+
+        <label for="ingresoInicial">Ingreso Inicial:</label>
+        <input type="number" id="ingresoInicial" step="0.01" required><br><br>
+
+        <label for="costoMateriaPrimaInicial">Costo de Materia Prima Inicial:</label>
+        <input type="number" id="costoMateriaPrimaInicial" step="0.01" required><br><br>
+
+        <label for="costoManoObraInicial">Costo de Mano de Obra Inicial:</label>
+        <input type="number" id="costoManoObraInicial" step="0.01" required><br><br>
+
+        <label for="gastosAdminInicial">Gastos Administrativos Inicial:</label>
+        <input type="number" id="gastosAdminInicial" step="0.01" required><br><br>
+
+        <label for="gastosVentaInicial">Gastos de Venta Inicial:</label>
+        <input type="number" id="gastosVentaInicial" step="0.01" required><br><br>
+
+        <h2>Gastos Financieros Proyectados</h2>
+        <table id="tablaGastosFinancieros">
+            <thead>
+                <tr>
+                    <th>Año</th>
+                    <th>Cuota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas se generarán dinámicamente -->
+            </tbody>
+        </table>
+        <button type="button" onclick="cargarCuotas()">Cargar Cuotas</button>
+
+        <label for="inversion">Inversión:</label>
+        <input type="number" id="inversion" step="0.01" required><br><br>
+
+        <label for="ventasActivos">Ventas de Activos:</label>
+        <input type="number" id="ventasActivos" step="0.01" required><br><br>
+
+        <label for="pagoDeudas">Pago de Deudas:</label>
+        <input type="number" id="pagoDeudas" step="0.01" required><br><br>
+
+        <button type="button" onclick="calcularFlujoDeCaja()">Calcular Flujo de Caja</button>
+        
+    </form>
+
+    <h2>Proyección de Flujo de Caja</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Año</th>
+                <th>Ingreso</th>
+                <th>Costo de Materia Prima</th>
+                <th>Costo de Mano de Obra</th>
+                <th>Gastos Administrativos</th>
+                <th>Gastos de Venta</th>
+                <th>Gastos Financieros</th>
+                <th>Inversión</th>
+                <th>Flujo Operativo</th>
+                <th>Ventas de Activos</th>
+                <th>Pago de Deudas</th>
+                <th>Flujo Antes de Participación</th>
+                <th>Participación de Trabajadores</th>
+                <th>Utilidad Antes de Impuestos</th>
+                <th>Impuesto a la Renta</th>
+                <th>Utilidad Antes de Reserva</th>
+                <th>Reserva Legal</th>
+                <th>Flujo Neto Proyectado</th>
+            </tr>
+        </thead>
+        <tbody id="tablaResultados"></tbody>
+    </table>
+    <button type="button" onclick="guardarYContinuar()">Siguiente</button>
+
+    <script src="script3a.js"></script>
+</div>
+</body>
+</html>

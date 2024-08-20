@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Amortización</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="container">
+    <h1>TABLA DE AMORTIZACIÓN</h1>
+    <div class="credit-details">
+        <h2>DATOS DEL CRÉDITO</h2>
+        <label for="tipo-credito">Tipo de Crédito:</label>
+        <select id="tipo-credito">
+            <option>Productivo Corporativo</option>
+            <option>Productivo Empresarial</option>
+            <option>Productivo PYMES</option>
+            <option>Comercial Ordinario</option>
+            <option>Comercial Prioritario Corporativo</option>
+            <option>Comercial Prioritario Empresarial</option>
+            <option>Comercial Prioritario Pymes</option>
+            <option>Consumo Ordinario</option>
+            <option>Consumo Prioritario</option>
+            <option>Educativo</option>
+            <option>Vivienda de Interés Público</option>
+            <option>Inmobiliario</option>
+            <option>Microcrédito Minorista</option>
+            <option>Microcrédito Acumulación Simple</option>
+            <option>Microcrédito Acumulación Ampliada</option>
+        </select>
+        <label for="tipo-tabla">Tipo de Tabla de Amortización:</label>
+        <select id="tipo-tabla">
+            <option value="francesa">Francesa</option>
+            <option value="alemana">Alemana</option>
+        </select>
+        <label for="frecuencia-pago">Frecuencia de Pago:</label>
+        <select id="frecuencia-pago">
+            <option>Quincenal</option>
+            <option>Mensual</option>
+            <option>Bimensual</option>
+            <option>Trimestral</option>
+            <option>Cuatrimestral</option>
+            <option>Semestral</option>
+            <option>Anual</option>
+        </select>
+        <label for="monto">Monto:</label>
+        <input type="number" id="monto" value="5000">
+        <label for="tasa-interes">Tasa de interes nominal:</label>
+        <input type="number" id="tasa-interes" value="21.75">
+        <label for="plazo">Plazo (años):</label>
+        <input type="number" id="plazo" value="5">
+        <button onclick="generarTabla()">Generar Tabla</button>
+    </div>
+    <div class="table-container">
+        <h2>Tablas de amortización</h2>
+        <table id="amortizacion-table">
+            <thead>
+                <tr>
+                    <th>Periodo</th>
+                    <th>Cuota</th>
+                    <th>Interes</th>
+                    <th>Amortización</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Contenido generado dinámicamente -->
+            </tbody>
+        </table>
+        <div class="summary">
+            <p>Total Final del Crédito: <span id="total-final"></span></p>
+            <p>Total Interés: <span id="total-interes"></span></p>
+            <p>Total Amortización: <span id="total-amortizacion"></span></p>
+        </div>
+       
+    </div>
+    <button onclick="window.location.href='index3a.html'">Continuar</button>
+    <script src="script3.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Análisis 360</title>
+    <link rel="stylesheet" href="stylesFinal.css">
+</head>
+<body>
+    <header>
+        <h1>INFORME DE ANÁLISIS 360</h1>
+    </header>
+    
+    <section id="datos-contribuyente">
+        <h2>DATOS DEL CONTRIBUYENTE:</h2>
+        <p><strong>Nombre:</strong> [Nombre del contribuyente]</p>
+        <p><strong>RUC:</strong> [RUC]</p>
+        <p><strong>Tipo de contribuyente:</strong> [Tipo de contribuyente]</p>
+        <p><strong>Inicio de Actividades Económicas:</strong> [Fecha]</p>
+        <p><strong>Tipo de Actividades Económicas:</strong> [Descripción]</p>
+    </section>
+
+    <section id="analisis-ingresos-egresos">
+        <h2>Análisis de Ingresos y Egresos:</h2>
+        <p><strong>Total Ingresos:</strong> $X,XXX,XXX</p>
+        <p><strong>Total Egresos:</strong> $X,XXX,XXX</p>
+        <p class="resultado">La diferencia <span id="diferencia"></span> entre Ingresos y Egresos representa un saldo <span id="saldo"></span> que <span id="conclusion"></span> cumplir con sus obligaciones financieras a tiempo.</p>
+        <div class="chart-container">
+            <canvas id="pieChartIngresosEgresos"></canvas>
+        </div>
+    </section>
+
+    <section id="analisis-solvencia">
+        <h2>Análisis de Solvencia:</h2>
+        <p><strong>Total Activos:</strong> $X,XXX,XXX</p>
+        <p><strong>Total Pasivos:</strong> $X,XXX,XXX</p>
+        <p id="solvencia"></p>
+        <div class="chart-container">
+            <canvas id="pieChartSolvencia"></canvas>
+        </div>
+    </section>
+
+    <button onclick="generarPDF()">Descargar como PDF</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="scriptfinal.js"></script>
+</body>
+</html>
