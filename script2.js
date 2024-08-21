@@ -125,6 +125,21 @@ function actualizarTablaDatosResumen() {
     document.getElementById('total-nivel-endeudamiento-resumen').textContent = promedioNivelEndeudamiento.toFixed(1);
 }
 
+function guardarDatosCrecimiento() {
+    const ingresos = parseFloat(document.getElementById('ingresos').value) || 0;
+    const gastos = parseFloat(document.getElementById('gastos').value) || 0;
+
+    // Estructura para guardar los datos de crecimiento
+    const datosCrecimientoVentas = {
+        anios: [2019, 2020, 2021, 2022, 2023], // Años fijos
+        ingresos: [ingresos, 0, 0, 0, 0], // Inicialmente se guarda solo en el primer año, y el resto se puede ajustar después
+        gastos: [gastos, 0, 0, 0, 0], // Similar para los gastos
+    };
+
+    localStorage.setItem('datosCrecimientoVentas', JSON.stringify(datosCrecimientoVentas));
+    alert("Datos guardados correctamente.");
+}
+
 function generarGrafica() {
     const ctx = document.getElementById('grafica').getContext('2d');
 
