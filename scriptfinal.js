@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            animation: false // Desactivar animación para mejorar la calidad del render
         }
     });
 
@@ -37,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            animation: false // Desactivar animación para mejorar la calidad del render
         }
     });
 });
@@ -48,7 +50,7 @@ function cargarDatosContribuyente() {
     if (datosContribuyente) {
         document.querySelector('#datos-contribuyente p:nth-child(2)').textContent = `Nombre: ${datosContribuyente.nombre}`;
         document.querySelector('#datos-contribuyente p:nth-child(3)').textContent = `RUC: ${datosContribuyente.ci}`;
-        document.querySelector('#datos-contribuyente p:nth-child(4)').textContent = `Tipo de contribuyente: ${datosContribuyente.tipoContribuyente}`;
+        document.querySelector('#datos-contribuyente p:nth-child(4)').textContent = `Tipo de RIMPE: ${datosContribuyente.tipoContribuyente}`;
         document.querySelector('#datos-contribuyente p:nth-child(5)').textContent = `Inicio de Actividades Económicas: ${datosContribuyente.inicioActividades}`;
         document.querySelector('#datos-contribuyente p:nth-child(6)').textContent = `Tipo de Actividades Económicas: ${datosContribuyente.tipoActividades}`;
 
@@ -86,7 +88,8 @@ function actualizarGraficos(datosContribuyente) {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            animation: false // Desactivar animación para mejorar la calidad del render
         }
     });
 
@@ -106,12 +109,11 @@ function actualizarGraficos(datosContribuyente) {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            animation: false // Desactivar animación para mejorar la calidad del render
         }
     });
 }
-
-document.addEventListener('DOMContentLoaded', cargarDatosContribuyente);
 
 function generarPDF() {
     const { jsPDF } = window.jspdf;
@@ -129,7 +131,7 @@ function generarPDF() {
     doc.setFontSize(12);
     doc.rect(10, 25, 190, 25); // x, y, width, height
 
-    doc.text("Score y Descripción del Riesgo", 15, 30);
+    doc.text("Score", 15, 30);
 
     const puntajeFinal = document.querySelector('#score-riesgo p:nth-child(2)').innerText;
     const riesgoFinal = document.querySelector('#score-riesgo p:nth-child(3)').innerText;
@@ -177,7 +179,7 @@ function generarPDF() {
 
     // Agregar la gráfica de "Análisis de Ingresos y Egresos"
     const canvasIngresosEgresos = document.getElementById('pieChartIngresosEgresos');
-    const imgDataIngresosEgresos = canvasIngresosEgresos.toDataURL('image/png');
+    const imgDataIngresosEgresos = canvasIngresosEgresos.toDataURL('image/png', 1.0); // Calidad 1.0
     doc.addImage(imgDataIngresosEgresos, 'PNG', 115, 108, 80, 35); // x, y, width, height
 
     // Sección "Análisis de Solvencia" con Marco
@@ -197,8 +199,39 @@ function generarPDF() {
 
     // Agregar la gráfica de "Análisis de Solvencia"
     const canvasSolvencia = document.getElementById('pieChartSolvencia');
-    const imgDataSolvencia = canvasSolvencia.toDataURL('image/png');
+    const imgDataSolvencia = canvasSolvencia.toDataURL('image/png', 1.0); // Calidad 1.0
     doc.addImage(imgDataSolvencia, 'PNG', 115, 160, 80, 35); // x, y, width, height
+
+    // Sección "Calificación de Días de Mora" con Marco
+    doc.setFontSize(12);
+    doc.rect(10, 200, 190, 45); // x, y, width, height
+
+    doc.text("Calificación de Días de Mora", 15, 205);
+    const calificacionMora = `
+        0 - Frecuencia (días): 0 - Impacto: 0%
+        1 - Frecuencia (días): 1-15 - Impacto: 1%-20%
+        2 - Frecuencia (días): 16-30 - Impacto: 21%-40%
+        3 - Frecuencia (días): 31-45 - Impacto: 41%-60%
+        4 - Frecuencia (días): 46-60 - Impacto: 61%-80%
+        5 - Frecuencia (días): 61-90 - Impacto: 81%-100%
+        6 - Frecuencia (días): 91- en adelante - Impacto: 101%- en adelante
+    `;
+    doc.setFontSize(10);
+    doc.text(calificacionMora, 15, 213);
+
+    // Sección "Matriz de Riesgos" con Marco
+    doc.setFontSize(12);
+    doc.rect(10, 250, 190, 35); // x, y, width, height
+
+    doc.text("Matriz de Riesgos", 15, 255);
+    const matrizRiesgos = `
+        999-960 - Bajo Riesgo de Morosidad
+        959-840 - Moderado Riesgo de Morosidad
+        839-600 - Alto Riesgo de Morosidad
+        599-280 - Muy Alto Riesgo de Morosidad
+    `;
+    doc.setFontSize(10);
+    doc.text(matrizRiesgos, 15, 263);
 
     // Guardar el PDF
     doc.save('informe-analisis-360.pdf');

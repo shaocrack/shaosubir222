@@ -259,32 +259,42 @@ function actualizarInterpretacionLiquidez() {
 
 
 
-    function updateCapitalTrabajo() {
-        const activosCorrientes = parseFloat(activosCorrientes1Input.value) || 0;
-        const pasivosCorrientes = parseFloat(pasivosCorrientes1Input.value) || 0;
-        const capitalTrabajo = activosCorrientes - pasivosCorrientes;
-        capitalTrabajoElement.textContent = `$${capitalTrabajo.toFixed(2)}`;
-        actualizarInterpretacionLiquidez(); 
-    }
+function updateCapitalTrabajo() {
+    const activosCorrientes = parseFloat(document.getElementById('total-activos').textContent.replace('$', '').replace(',', '')) || 0;
+    const pasivosCorrientes = parseFloat(document.getElementById('total-pasivos-corrientes').textContent.replace('$', '').replace(',', '')) || 0;
+    const capitalTrabajo = activosCorrientes - pasivosCorrientes;
+    
+    document.getElementById('activos-corrientes-1').value = activosCorrientes.toFixed(2);
+    document.getElementById('pasivos-corrientes-1').value = pasivosCorrientes.toFixed(2);
+    document.getElementById('capital-trabajo').textContent = `$${capitalTrabajo.toFixed(2)}`;
+    
+    actualizarInterpretacionLiquidez();
+}
 
 
-    function updateLiquidezCorriente() {
-        const activosCorrientes = parseFloat(activosCorrientes2Input.value) || 0;
-        const pasivosCorrientes = parseFloat(pasivosCorrientes2Input.value) || 0;
-        const liquidezCorriente = activosCorrientes / pasivosCorrientes;
-        liquidezCorrienteElement.textContent = liquidezCorriente.toFixed(2);
-        actualizarInterpretacionLiquidez();
-    }
+function updateLiquidezCorriente() {
+    const activosCorrientes = parseFloat(document.getElementById('total-activos').textContent.replace('$', '').replace(',', '')) || 0;
+    const pasivosCorrientes = parseFloat(document.getElementById('total-pasivos-corrientes').textContent.replace('$', '').replace(',', '')) || 0;
+    const liquidezCorriente = activosCorrientes / pasivosCorrientes;
 
-    function updatePruebaAcida() {
-        const activosCorrientes = parseFloat(activosCorrientes3Input.value) || 0;
-        const inventario = parseFloat(inventariosInput.value) || 0;
-        const pasivosCorrientes = parseFloat(pasivosCorrientes3Input.value) || 0;
-        const pruebaAcida = (activosCorrientes - inventario) / pasivosCorrientes;
-        pruebaAcidaElement.textContent = pruebaAcida.toFixed(2);
-        document.getElementById('inventario').value = inventario.toFixed(2);
-        actualizarInterpretacionLiquidez();
-    }
+    document.getElementById('activos-corrientes-2').value = activosCorrientes.toFixed(2);
+    document.getElementById('pasivos-corrientes-2').value = pasivosCorrientes.toFixed(2);
+    document.getElementById('liquidez-corriente').textContent = liquidezCorriente.toFixed(2);
+
+    actualizarInterpretacionLiquidez();
+}
+
+    
+function updatePruebaAcida() {
+    const activosCorrientes = parseFloat(activosCorrientes3Input.value) || 0;
+   //const activosCorrientes = parseFloat(document.getElementById('total-activos').textContent.replace('$', '').replace(',', '')) || 0;
+    const inventario = parseFloat(inventariosInput.value) || 0;
+    const pasivosCorrientes = parseFloat(pasivosCorrientes3Input.value) || 0;
+    const pruebaAcida = (activosCorrientes - inventario) / pasivosCorrientes;
+    pruebaAcidaElement.textContent = pruebaAcida.toFixed(2);
+    document.getElementById('inventario').value = inventario.toFixed(2);
+    actualizarInterpretacionLiquidez();
+}
 
     function updateCrecimiento() {
         ventas2021 = parseFloat(ventas2021Input.value) || 0;
@@ -806,4 +816,7 @@ gastosFinancierosInput.addEventListener('input', updateTotalEgresos);
     updatePeriodoPago();
     updateRotacionActivoFijo();
     updateRotacionVentas();
+    updateCapitalTrabajo();
+    updateLiquidezCorriente();
+    updatePruebaAcida();
 });
